@@ -40,10 +40,10 @@ class App():
             if self.actions['down']:
                 self.state_stack[-1].process_key_down()
 
-            if self.actions['left']:
+            if self.actions['right']:
                 self.state_stack[-1].process_key_right()
 
-            if self.actions['right']:
+            if self.actions['left']:
                 self.state_stack[-1].process_key_left()
 
             self.update()
@@ -60,8 +60,16 @@ class App():
                 if event.key == pygame.K_UP:
                     self.actions['up'] = True
                 if event.key == pygame.K_LEFT:
-                    self.actions['right'] = True
+                    self.actions['left'] = True
                 if event.key == pygame.K_RIGHT:
+                    self.actions['right'] = True
+                if event.key == pygame.K_s:
+                    self.actions['down'] = True
+                if event.key == pygame.K_w:
+                    self.actions['up'] = True
+                if event.key == pygame.K_d:
+                    self.actions['right'] = True
+                if event.key == pygame.K_a:
                     self.actions['left'] = True
 
             if event.type == pygame.KEYUP:
@@ -73,6 +81,14 @@ class App():
                     self.actions['left'] = False
                 if event.key == pygame.K_RIGHT:
                     self.actions['right'] = False
+                if event.key == pygame.K_s:
+                    self.actions['down'] = False
+                if event.key == pygame.K_w:
+                    self.actions['up'] = False
+                if event.key == pygame.K_d:
+                    self.actions['right'] = False
+                if event.key == pygame.K_a:
+                    self.actions['left'] = False
 
             if event.type == pygame.QUIT:
                 self.exit_game()
