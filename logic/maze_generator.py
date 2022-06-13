@@ -57,7 +57,6 @@ class Maze():
 
         # Loop until there are no candidate walls left.
         while self.wall_list:
-            # Convert the candidate wall list object to a list to pull random choice.
             cell = random.choice(self.wall_list)
             x, y = cell[1], cell[0]
             # If North and South neighbors are not 'unvisited' and 'path', check these rules against the East and West neighbors.
