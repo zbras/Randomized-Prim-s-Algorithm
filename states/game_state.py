@@ -10,8 +10,8 @@ class Game(State):
         State.__init__(self, app)
         self.app = app
 
-        self.maze_width = 160
-        self.maze_height = 80
+        self.maze_width = 20
+        self.maze_height = 20
         self.block_dim = 10
         self.wall_color = (100,100,100)
         self.path_color = (200,200,200)
@@ -21,8 +21,8 @@ class Game(State):
         self.screen_width = self.maze.width * self.block_dim
         self.screen_height = self.maze.height * self.block_dim
         self.app.surface = pygame.Surface((self.screen_width, self.screen_height))
-        self.app.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        #self.app.screen = pygame.display.set_mode((self.screen_width, self.screen_height), pygame.NOFRAME)
+        #self.app.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        self.app.screen = pygame.display.set_mode((self.screen_width, self.screen_height), pygame.NOFRAME)
         self.player = Player(self.app, self)
         self.pause_render = False
 
