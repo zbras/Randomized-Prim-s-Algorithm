@@ -92,10 +92,10 @@ class Maze():
         # Store second column of maze in x_min, second-to-last column in x_max
         x_min, x_max = self.coords[:, 1], self.coords[:, self.coords.shape[1] - 2]
 
-        # Check the rightmost row.
+        # Check the rightmost column.
         if self.path not in x_max:
             self.coords = np.delete(self.coords, self.coords.shape[1] - 2, 1)
-        # Check the leftmost row.
+        # Check the leftmost column.
         if self.path not in x_min:
             self.coords = np.delete(self.coords, 1, 1)
 
