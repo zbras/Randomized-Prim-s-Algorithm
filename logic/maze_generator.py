@@ -32,26 +32,11 @@ class Maze():
         self.width = width
         self.height = height
 
-        self.generate_borders()
         self.generate_starting_point()
         self.generate_walls()
         self.fill_holes()
         self.remove_full_borders()
         self.generate_start_end()
-
-    def generate_borders(self) -> None:
-        '''
-        This method alters the initial numpy array, assigning the self.border value to the first and last rows and columns.
-        '''
-
-        # Set top and bottom border values.
-        for y in range(self.height):
-            self.coords[y][0] = self.border
-            self.coords[y][self.width - 1] = self.border
-        # Set left and right border values.
-        for x in range(self.width):
-            self.coords[0][x] = self.border
-            self.coords[self.height - 1][x] = self.border
 
     def generate_starting_point(self) -> None:
         '''
@@ -139,6 +124,8 @@ class Maze():
         nx, ny = x, y - 1
         sx, sy = x, y + 1
 
+        # If the neighboring cells are out of bounds, return False
+        if ny < 1 or sy > self.height - 2: return False
         # Need to check both instances - whether North is a path and South is unvisited, or vice-versa.
         if self.coords[ny][nx] == self.unvisited and self.coords[sy][sx] == self.path:
             self.make_path(ny, nx)
@@ -166,6 +153,8 @@ class Maze():
         ex, ey = x - 1, y
         wx, wy = x + 1, y
 
+        # If the neighboring cells are out of bounds, return False
+        if ex < 1 or wx > self.width - 2: return False
         # Need to check both instances - whether East is a path and West is unvisited, or vice-versa.
         if self.coords[ey][ex] == self.unvisited and self.coords[wy][wx] == self.path:
             self.make_path(ey, ex)
@@ -237,4 +226,4 @@ if __name__ == '__main__':
 
     maze = Maze()
 
-    pd.DataFrame(maze.output()).to_csv('text.csv', index = False, header = False, sep = ' ')
+    pd.DataFrame(maze.output()).to_csv('maze.csv', index = False, header = False, sep = ' ')
