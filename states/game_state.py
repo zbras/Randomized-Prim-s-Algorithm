@@ -1,6 +1,6 @@
 import pygame
 from states.state import State
-from logic.maze_generator import Maze
+from logic.maze import Maze
 from logic.player import Player
 
 class Game(State):
