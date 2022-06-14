@@ -19,6 +19,6 @@ Prim's algorithm operates by the following rules:
 
 Todo:
 - [ ] Add title screen
-- [ ] Add options screen and cooresponding options
+- [ ] Add options screen and corresponding options
 - [ ] Add scoring system
 - [ ] Add save state
