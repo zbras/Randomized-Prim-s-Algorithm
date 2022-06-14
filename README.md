@@ -19,8 +19,12 @@ Prim's algorithm operates by the following rules:
          - Add the unvisited cell's neighbors to the wall list.
    - Remove the randomly chosen wall from the wall list.
 
+
+![alt text](https://github.com/zbras/Randomized-Prim-s-Algorithm/blob/main/assets/prims_2.png?raw=true)
+
 Todo:
 - [ ] Add title screen
 - [ ] Add options screen and corresponding options
 - [ ] Add scoring system
 - [ ] Add save state
+- [ ] Multiplayer?
