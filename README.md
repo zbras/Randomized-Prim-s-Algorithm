@@ -15,7 +15,7 @@ Prim's algorithm operates by the following rules:
 3. While the wall list is not empty, do the following:
    - Pick a random wall from the list.
      - Check if only one of the cells that wall divides is visited.
-       - If 3.1.1 is satisfied, make the wall and the unvisited cell a path.
+       - Make the wall and the unvisited cell a path.
          - Add the unvisited cell's neighbors to the wall list.
    - Remove the randomly chosen wall from the wall list.
 
