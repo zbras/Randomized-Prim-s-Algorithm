@@ -7,6 +7,7 @@
 Requires NumPy for `where()`, `zeros()`, and `delete()`, and Pandas for `to_csv()` (only used if the array is desired - run ***/logic/maze.py***).
 ***/logic/game_state.py*** houses the variables for block size and maze width / height.
 
+
 Prim's algorithm operates by the following rules:
 
 1. Start with a grid of unvisited cells.
@@ -22,7 +23,7 @@ Prim's algorithm operates by the following rules:
 
 ![alt text](https://github.com/zbras/Randomized-Prim-s-Algorithm/blob/main/assets/prims_2.png?raw=true)
 
-Todo:
+TODO:
 - [ ] Add title screen
 - [ ] Add options screen and corresponding options
 - [ ] Add scoring system
