@@ -3,7 +3,7 @@
 ***Concept game implementing a randomized version of Prim's binary search tree algorithm for maze generation.***
 
 Requires NumPy for `where()`, `zeros()`, and `delete()`, and Pandas for `to_csv()` (only used if the array is desired - run ***/logic/maze.py***).
-`game_state.py` houses the variables for block size and maze width / height.
+***/logic/game_state.py*** houses the variables for block size and maze width / height.
 
 Prim's algorithm operates by the following rules:
 
@@ -17,3 +17,8 @@ Prim's algorithm operates by the following rules:
          - Add the unvisited cell's neighbors to the wall list.
    - Remove the randomly chosen wall from the wall list.
 
+Todo:
+- [] Add title screen
+- [] Add options screen and cooresponding options
+- [] Add scoring system
+- [] Add save state
