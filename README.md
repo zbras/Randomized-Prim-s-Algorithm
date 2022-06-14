@@ -1,3 +1,5 @@
+![alt text](https://github.com/zbras/Randomized-Prim-s-Algorithm/blob/main/assets/prims.png?raw=true)
+
 # Randomized Prim's Algorithm
 
 ***Concept game implementing a randomized version of Prim's binary search tree algorithm for maze generation.***
