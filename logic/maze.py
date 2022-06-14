@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import random
+import time
 
 class Maze():
     '''
@@ -31,6 +32,7 @@ class Maze():
         self.wall_list = []
         self.width = width
         self.height = height
+        self.start_time = time.time()
 
         self.generate_starting_point()
         self.generate_walls()
@@ -109,6 +111,8 @@ class Maze():
 
         self.coords[0][1] = self.path
         self.coords[self.height - 1][self.width - 2] = self.path
+
+        print(time.time() - self.start_time)
 
     def n_s_neighbors(self, y, x) -> bool:
         '''
@@ -223,6 +227,6 @@ class Maze():
 
 if __name__ == '__main__':
 
-    maze = Maze()
+    maze = Maze(400, 400)
 
     pd.DataFrame(maze.output()).to_csv('maze.csv', index = False, header = False, sep = ' ')
