@@ -18,7 +18,7 @@ Prim's algorithm operates by the following rules:
    - Remove the randomly chosen wall from the wall list.
 
 Todo:
-- [] Add title screen
-- [] Add options screen and cooresponding options
-- [] Add scoring system
-- [] Add save state
+- [ ] Add title screen
+- [ ] Add options screen and cooresponding options
+- [ ] Add scoring system
+- [ ] Add save state
