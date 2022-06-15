@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
-import random
-import time
+import random, functools, time
 
 class Maze():
     '''
@@ -32,14 +31,31 @@ class Maze():
         self.wall_list = []
         self.width = width
         self.height = height
-        self.start_time = time.time()
 
         self.generate_starting_point()
         self.generate_walls()
         self.fill_holes()
         self.remove_full_borders()
         self.generate_start_end()
+        #self.generate_solving_nodes()
 
+    def timer(func):
+        '''
+        Print the runtime of the decorated function
+        '''
+
+        @functools.wraps(func)
+        def wrapper_timer(*args, **kwargs):
+
+            start_time = time.perf_counter()
+            value = func(*args, **kwargs)
+            print(f'Finished "{func.__name__}" in {round((time.perf_counter() - start_time), 4)}s')
+
+            return value
+
+        return wrapper_timer
+
+    @timer
     def generate_starting_point(self) -> None:
         '''
         Chooses a starting point for maze generation at random.
@@ -52,6 +68,7 @@ class Maze():
         self.add_wall_neighbors(y, x)
         self.make_path(y, x)
 
+    @timer
     def generate_walls(self) -> None:
         '''
         Main loop for maze generation; see class documentation for algorithm rules.
@@ -66,6 +83,7 @@ class Maze():
             # Remove the cell from the list of candidate wall cells.
             self.delete_node(y, x)
 
+    @timer
     def fill_holes(self) -> None:
         '''
         This method fills any holes which have been left unassigned by the algorithm.
@@ -75,6 +93,7 @@ class Maze():
 
         self.coords = np.where(self.coords == 0, 1, self.coords)
 
+    @timer
     def remove_full_borders(self) -> None:
         '''
         If an odd number is used as the width and/or height of the maze, the algorithm may generate full walls on one or more sides.
@@ -104,6 +123,7 @@ class Maze():
         # Update the new width and height of the maze, as it may have changed shape.
         self.height, self.width = self.coords.shape
 
+    @timer
     def generate_start_end(self) -> None:
         '''
         Sets the entrance (top-left) and exit (bottom-right) as paths.
@@ -112,7 +132,15 @@ class Maze():
         self.coords[0][1] = self.path
         self.coords[self.height - 1][self.width - 2] = self.path
 
-        print(time.time() - self.start_time)
+    '''@timer
+    def generate_solving_nodes(self):
+        for y in range(0, self.height):
+            for x in range(0, self.width):
+                if self.coords[y][x] == self.path:
+                    if self.node_neighbors(y, x):
+                        pass
+                    if self.node_neighbors(y, x):
+                        pass'''
 
     def n_s_neighbors(self, y, x) -> bool:
         '''
