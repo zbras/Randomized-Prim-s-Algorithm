@@ -132,16 +132,6 @@ class Maze():
         self.coords[0][1] = self.path
         self.coords[self.height - 1][self.width - 2] = self.path
 
-    '''@timer
-    def generate_solving_nodes(self):
-        for y in range(0, self.height):
-            for x in range(0, self.width):
-                if self.coords[y][x] == self.path:
-                    if self.node_neighbors(y, x):
-                        pass
-                    if self.node_neighbors(y, x):
-                        pass'''
-
     def n_s_neighbors(self, y, x) -> bool:
         '''
         Method for rule 3.1: Check if the wall candidate has a path to its North or South, and an unvisited cell opposite the path.
@@ -181,11 +171,11 @@ class Maze():
         '''
 
         # East and West cell coordinates.
-        ex, ey = x - 1, y
-        wx, wy = x + 1, y
+        ex, ey = x + 1, y
+        wx, wy = x - 1, y
 
         # If the neighboring cells are out of bounds, return False
-        if ex < 1 or wx > self.width - 2: return False
+        if wx < 1 or ex > self.width - 2: return False
         # Need to check both instances - whether East is a path and West is unvisited, or vice-versa.
         if self.coords[ey][ex] == self.unvisited and self.coords[wy][wx] == self.path:
             self.make_path(ey, ex)
@@ -255,6 +245,6 @@ class Maze():
 
 if __name__ == '__main__':
 
-    maze = Maze(400, 400)
+    maze = Maze(1000, 1000)
 
     pd.DataFrame(maze.output()).to_csv('maze.csv', index = False, header = False, sep = ' ')
