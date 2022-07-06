@@ -10,8 +10,8 @@ class Game(State):
         State.__init__(self, app)
         self.app = app
 
-        self.maze_width = 20
-        self.maze_height = 20
+        self.maze_width = 100
+        self.maze_height = 70
         self.block_dim = 10
         self.wall_color = (100,100,100)
         self.path_color = (200,200,200)
